@@ -1,11 +1,20 @@
-import React from 'react'
-import CalendarIcon from '../components/CalendarIcon'
-import placeholderUser from '/male.png'
-import WorkExperience from '../components/version1/WorkExperience';
-import TechnicalSkills from '../components/version1/TechnicalSkills';
-import Education from '../components/version1/Education';
+import React, { useRef } from 'react';
+
+import WorkExperience from '../components/V1-Preview/WorkExperience';
+import TechnicalSkills from '../components/V1-Preview/TechnicalSkills';
+import Education from '../components/V1-Preview/Education';
+import UserInformation from '../components/V1-Preview/UserInformation';
 
 const DownloadCV = () => {
+
+    const userData = {
+        fullName: "Roney Alfonso Valdelomar López",
+        job: "Software Developer",
+        email: "rvaldelomarlopez@gmail.com",
+        countryCode: "506",
+        phone: "6283-1879",
+        biography: "Experienced software developer with a passion for building scalable and efficient applications. Proficient in a variety of programming languages and frameworks, and always eager to learn new technologies."
+    }
 
     const workExperience = [
         {
@@ -63,10 +72,9 @@ const DownloadCV = () => {
 
     const education = [
         {
-            educationName: "    Bachelor of Science in Computer Science",
-            place: "University of Example",
-            startYear: "2015",
-            endYear: "2019"
+            educationName: "Diploma in Software Engineering",
+            place: "National Technical University (UTN), Costa Rica",
+            endYear: "2024"
         },
         {
             educationName: "Certified Scrum Master",
@@ -75,63 +83,76 @@ const DownloadCV = () => {
         },
     ];
 
+    const contentRef = useRef();
+
+    const hideElements = (elements) => {
+        elements.forEach(element => {
+            if (element.tagName.toLowerCase() === "input") {
+                element.style.visibility = 'hidden';
+            } else {
+                element.style.display = 'none';
+            }
+        });
+    };
+
+    const showElements = (elements) => {
+        elements.forEach(element => {
+            if (element.tagName.toLowerCase() === "input") {
+                element.style.visibility = '';
+            } else {
+                element.style.display = '';
+            }
+        });
+    };
+
+
+    // TODO: Crear otra función para generarlo pero con texto no con una imagen
+    // TODO: Buscar si puedo hacer más grande la letra de la imagen
+    const generatePDFWithText = () => {
+
+        //? Esta función abre el dialogo de impresión del navegador
+
+        window.print()
+    };
+
+    const generatePDFWithImage = () => {
+        const input = contentRef.current;
+
+        const hiddenElements = input.querySelectorAll('.no-print');
+        hideElements(hiddenElements);
+
+        console.log(input.innerText);
+
+        showElements(hiddenElements);
+    };
+
 
     return (
-        <section className="w-full max-w-4xl mx-auto">
-            <header className="bg-muted/20 p-6">
-                <div className="flex items-center gap-6">
-                    <div className="h-32 w-24 flex items-center">
-                        <img src={placeholderUser} className='object-cover h-16' />
-                    </div>
-                    <div className="grid gap-1">
-                        <h1 className="text-3xl font-bold">Roney Alfonso Valdelomar López</h1>
-                        <p className="text-muted-foreground">Software Developer</p>
-                        <p className="text-muted-foreground">rvaldelomarlopez@gmail.com | (506) 6283-1879</p>
-                        <p className="text-muted-foreground">
-                            Experienced software developer with a passion for building scalable and efficient applications. Proficient
-                            in a variety of programming languages and frameworks, and always eager to learn new technologies.
-                        </p>
-                    </div>
-                </div>
-            </header>
+        <section className="w-full max-w-4xl mx-auto" ref={contentRef}>
+            <UserInformation userData={userData} />
+
             <main className="p-6 grid gap-8">
-                <div className="grid gap-4">
-                    <h2 className="text-2xl font-bold">Work Experience</h2>
-                    <div className="grid gap-6">
+                <WorkExperience jobData={workExperience} />
 
-                        {workExperience.map((workInformation, index) => (
-                            <WorkExperience key={index} workInformation={workInformation} />
-                        ))}
+                <TechnicalSkills technicalSkills={technicalSkills} />
 
-                    </div>
-                </div>
-
-                <div className="grid gap-4">
-                    <h2 className="text-2xl font-bold">Technical Skills</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-
-                        {technicalSkills.map((skillsInformation, index) => (
-                            <TechnicalSkills key={index} skillsInformation={skillsInformation} />
-                        ))}
-
-                    </div>
-                </div>
-                <div className="grid gap-4">
-                    <h2 className="text-2xl font-bold">Education</h2>
-                    <div className="grid gap-4">
-
-                        {education.map((educationInformation, index) => (
-                            <Education key={index} educationInformation={educationInformation} />
-                        ))}
-
-                    </div>
-                </div>
+                <Education studies={education} />
             </main>
-            <footer className='mb-8 text-center'>
+            <footer className='mb-8 text-center flex gap-4'>
                 <button
                     className='py-2 px-4 border-4 border-emerald-500 border-dashed rounded-lg hover:scale-105 transition-transform no-print'
+                    id='btnDownload'
+                    onClick={generatePDFWithImage}
                 >
                     Descargar CV
+                </button>
+
+                <button
+                    className='py-2 px-4 border-4 border-emerald-500 border-dashed rounded-lg hover:scale-105 transition-transform no-print'
+                    id='btnDownload'
+                    onClick={generatePDFWithText}
+                >
+                    Imprimir CV
                 </button>
             </footer>
         </section>
