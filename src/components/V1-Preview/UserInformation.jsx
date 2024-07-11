@@ -1,10 +1,14 @@
 import React from 'react'
 
 import placeholderUser from '/male.png';
+import { useUserData } from '../../context/UserContext';
 
-const UserInformation = ({ userData }) => {
+const UserInformation = () => {
 
-    const { fullName, job, email, countryCode, phone, biography } = userData;
+    const userData = useUserData();
+
+    const { fullName, job, email, countryCode, phone, LinkedIn, Github } = userData?.personalInformation;
+    const { professionalResume } = userData;
 
     return (
         <header className="bg-muted/20 p-6">
@@ -17,7 +21,7 @@ const UserInformation = ({ userData }) => {
                     <p className="text-muted-foreground">{job}</p>
                     <p className="text-muted-foreground">{email} | ({countryCode}) {phone}</p>
                     <p className="text-muted-foreground">
-                        {biography}
+                        {professionalResume}
                     </p>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom'
 // Pages
 import CustomizeCV from './pages/CustomizeCV'
 import DownloadCV from './pages/DownloadCV'
+import { UserProvider } from './context/UserContext'
 
 function App() {
 
@@ -27,9 +28,11 @@ function App() {
   ])
 
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+    <UserProvider>
+      <div>
+        <RouterProvider router={router} />
+      </div>
+    </UserProvider>
   )
 }
 

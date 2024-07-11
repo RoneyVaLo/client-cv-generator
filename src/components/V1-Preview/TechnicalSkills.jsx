@@ -1,7 +1,10 @@
 import React from 'react'
 import SkillDescription from './SkillDescription';
+import { useUserData } from '../../context/UserContext';
 
-const TechnicalSkills = ({ technicalSkills }) => {
+const TechnicalSkills = () => {
+
+    const { technicalSkills } = useUserData();
 
     return (
         <div className="grid gap-4">
