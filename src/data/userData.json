@@ -1,0 +1,139 @@
+{
+    "personalInformation": {
+        "fullName": "Roney Alfonso Valdelomar López",
+        "job": "Software Developer",
+        "email": "rvaldelomarlopez@gmail.com",
+        "countryCode": "506",
+        "phone": "6283-1879",
+        "LinkedIn": "",
+        "Github": ""
+    },
+    "professionalResume": "Experienced software developer with a passion for building scalable and efficient applications. Proficient in a variety of programming languages and frameworks, and always eager to learn new technologies.",
+    "education": [
+        {
+            "educationName": "Diploma in Software Engineering",
+            "place": "National Technical University (UTN), Costa Rica",
+            "endYear": "2024"
+        },
+        {
+            "educationName": "Certified Scrum Master",
+            "place": "Scrum Alliance",
+            "endYear": "2021"
+        }
+    ],
+    "professionalExperience": [
+        {
+            "job": "Software Developer",
+            "companyName": "Acme Inc.",
+            "startYear": "2020",
+            "endYear": "Present",
+            "responsabilities": [
+                "Developed and maintained complex web applications using React, Node.js, and MongoDB.",
+                "Collaborated with cross - functional teams to design and implement new features.",
+                "Optimized application performance and scalability through code refactoring and infrastructure improvements.",
+                "Participated in agile development processes, including sprint planning, code reviews, and retrospectives."
+            ]
+        },
+        {
+            "job": "Intern Software Engineer",
+            "companyName": "Globex Corporation",
+            "startYear": "2019",
+            "endYear": "2020",
+            "responsabilities": [
+                "Contributed to the development of a web - based enterprise resource planning(ERP) system.",
+                "Implemented new features and bug fixes using Java, Spring Boot, and PostgreSQL.",
+                "Participated in code reviews and pair programming sessions to improve code quality.",
+                "Gained experience in agile development methodologies and project management tools."
+            ]
+        }
+    ],
+    "technicalSkills": [
+        {
+            "category": "Programming Languages",
+            "skills": [
+                "JavaScript",
+                "TypeScript",
+                "Python",
+                "Java"
+            ]
+        },
+        {
+            "category": "Frameworks & Libraries",
+            "skills": [
+                "React",
+                "Node.js",
+                "Express",
+                "Django",
+                "Spring Boot"
+            ]
+        },
+        {
+            "category": "Databases",
+            "skills": [
+                "MongoDB",
+                "PostgreSQL",
+                "MySQL"
+            ]
+        },
+        {
+            "category": "Tools & Platforms",
+            "skills": [
+                "Git",
+                "GitHub",
+                "Docker",
+                "AWS",
+                "Azure"
+            ]
+        },
+        {
+            "category": "Testing",
+            "skills": [
+                "Jest",
+                "Enzyme",
+                "Cypress"
+            ]
+        },
+        {
+            "category": "Methodologies",
+            "skills": [
+                "Agile",
+                "Scrum",
+                "Kanban"
+            ]
+        }
+    ],
+    "softSkills": [
+        "Trabajo en equipo",
+        "Resolución de problemas",
+        "Adaptabilidad",
+        "Pensamiento crítico"
+    ],
+    "projects": [
+        {
+            "title": "",
+            "description": "",
+            "technologies": "",
+            "link": ""
+        }
+    ],
+    "certificationsAndCourses": [
+        {
+            "name": "Certified Scrum Master",
+            "place": "Scrum Alliance",
+            "endYear": "2021"
+        }
+    ],
+    "languages": [
+        {
+            "name": "",
+            "level": ""
+        }
+    ],
+    "references": [
+        {
+            "fullName": "",
+            "position": "",
+            "phone": ""
+        }
+    ]
+}
